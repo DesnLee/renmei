@@ -1,0 +1,33 @@
+# mongoDB 链接地址
+database_url : ""
+
+# bot令牌
+bot_token :    ""
+
+# bot主人 user ID
+me :
+
+super_admin :
+  -
+
+channel :
+
+# 定义预设消息内容
+msg :
+  start : ""
+
+# pushDeer key
+push_key :     ""
+
+# TMDB key
+tmdb_api_key : ""
+
+# 厂妹接口地址
+search_url :   ""
+score_path :   ""
+
+# 定义几种 form
+parse :
+  html : { parse_mode : "HTML", disable_web_page_preview : true }
+  mark : { parse_mode : "Markdown", disable_web_page_preview : true }
+  mark2 : { parse_mode : "MarkdownV2", disable_web_page_preview : true }

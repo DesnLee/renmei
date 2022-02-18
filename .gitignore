@@ -1,0 +1,6 @@
+/config.yaml
+dist
+node_modules
+deploy.sh
+.idea
+/src/lib/commands/refresh.ts
