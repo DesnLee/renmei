@@ -4,3 +4,4 @@ node_modules
 deploy.sh
 .idea
 /src/lib/commands/refresh.ts
+.DS_Store
