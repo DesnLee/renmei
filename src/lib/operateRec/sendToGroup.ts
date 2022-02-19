@@ -44,8 +44,8 @@ export default async () => {
       });
     }
 
-    await push(`Channel 推送成功！\n剩余待推荐数量：${balance}`);
+    await push(`Group 推送成功！\n剩余待推荐数量：${balance}`);
   } catch (error) {
-    await push(`Channel 推送失败\n${error}`);
+    await push(`Group 推送失败\n${error}`);
   }
 };
