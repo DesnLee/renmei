@@ -25,6 +25,7 @@ export default async (
       originTitle: conversation.data.originTitle,
       zhTitle: conversation.data.zhTitle,
       text: comment,
+      comment: { good: [], nogood: [] },
       from: user._id,
       weight: weight,
     });
