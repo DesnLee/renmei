@@ -69,20 +69,19 @@ export default async (data: TmdbInfo, doc: RecommendDoc) => {
     overview.length > 360 ? overview.slice(0, 360) + '...' : overview;
 
   /**
-   * 电影
+   * 构造推送消息内容
    */
   let message = '';
-
   if (runtime || runtime === 0) {
+    const runTime = runtime === 0 ? '暂无' : runtime + ' MIN';
+
     message += '#每日推荐  #电影\n\n';
     message += `${tags}\n\n`;
     message += `<b>${original_title} ｜ ${title}</b>\n\n`;
     message += `&#128197 Release Date:  <b>${release_date}</b>\n\n`;
     message += `&#127757 Region:  <b>${countries}</b>\n\n`;
     message += `&#128139 Language:  <b>${original_language.toUpperCase()}</b>\n\n`;
-    message += `&#128338 Run Time:  <b>${
-      runtime === 0 ? '暂无' : runtime + ' MIN'
-    } </b>\n\n`;
+    message += `&#128338 Run Time:  <b>${runTime} </b>\n\n`;
     message += `&#128176 Revenue:  <b>${boxOffice}</b>\n\n`;
     message += `&#11088 Vote Average:  <b>${vote_average}</b>\n\n`;
     message += `&#129516 IMDB:  <b>${imdb_id}</b>\n\n\n`;
@@ -91,6 +90,8 @@ export default async (data: TmdbInfo, doc: RecommendDoc) => {
     message += `From <a href="tg://user?id=${user.tg_id}">${userName}</a>\n\n`;
     message += `${text}`;
   } else {
+    const runTime = episode_run_time[0] ? episode_run_time[0] + ' MIN' : '暂无';
+
     message += '#每日推荐  #剧集\n\n';
     message += `${tags}\n\n`;
     message += `<b>${original_name} ｜ ${name}</b>\n\n`;
@@ -99,9 +100,7 @@ export default async (data: TmdbInfo, doc: RecommendDoc) => {
     message += `&#127757 Region:  <b>${origin_country}</b>\n\n`;
     message += `&#128139 Language:  <b>${original_language.toUpperCase()}</b>\n\n`;
     message += `&#128250 TV Detail:  <b>${number_of_seasons}季  共${number_of_episodes}集</b>\n\n`;
-    message += `&#128338 Run Time:  <b>${
-      episode_run_time[0] ? episode_run_time[0] + ' MIN' : '暂无'
-    } </b>\n\n`;
+    message += `&#128338 Run Time:  <b>${runTime} </b>\n\n`;
     message += `&#11088 Vote Average:  <b>${vote_average}</b>\n\n\n`;
     message += `${profiles}\n\n\n`;
     message += `Via <a href="https://t.me/TerminusMediaFeed">终点站影视推荐频道</a>\n`;
