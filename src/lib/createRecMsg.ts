@@ -81,7 +81,7 @@ export default async (data: TmdbInfo, doc: RecommendDoc) => {
     message += `&#127757 Region:  <b>${countries}</b>\n\n`;
     message += `&#128139 Language:  <b>${original_language.toUpperCase()}</b>\n\n`;
     message += `&#128338 Run Time:  <b>${
-      runtime === 0 ? '暂无' : runtime + 'MIN'
+      runtime === 0 ? '暂无' : runtime + ' MIN'
     } </b>\n\n`;
     message += `&#128176 Revenue:  <b>${boxOffice}</b>\n\n`;
     message += `&#11088 Vote Average:  <b>${vote_average}</b>\n\n`;
