@@ -105,7 +105,7 @@ export default async (receivedMsg: Message) => {
       break;
 
     default:
-      await bot.sendMessage(me, '未知命令');
+      message = '未知命令';
   }
 
   return message;
