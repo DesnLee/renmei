@@ -15,14 +15,14 @@ const changeRec = () => {
   });
 };
 
-const reset = () => {
-  schedule.scheduleJob('0 0 16 * * *', async () => {
-    const userList: UserDoc[] = await User.find({ _id: { $exists: true } });
-    for (const user of userList) {
-      await user.updateOne({ today: 0 });
-    }
-    await push('点赞次数已重置');
-  });
-};
+// const reset = () => {
+//   schedule.scheduleJob('0 0 16 * * *', async () => {
+//     const userList: UserDoc[] = await User.find({ _id: { $exists: true } });
+//     for (const user of userList) {
+//       await user.updateOne({ today: 0 });
+//     }
+//     await push('点赞次数已重置');
+//   });
+// };
 
-export { reset, changeRec };
+export {  changeRec };

@@ -21,9 +21,9 @@ export default async (receivedMsg: Message) => {
     return;
   }
 
-  const message = await createRecMsg(info, data);
-  await bot.sendPhoto(receivedMsg.chat.id, message.imgUrl, {
-    caption: message.message,
+  const { img,message } = await createRecMsg(info, data);
+  await bot.sendPhoto(receivedMsg.chat.id, img, {
+    caption: message,
     parse_mode: `HTML`,
   });
 };

@@ -6,12 +6,12 @@ import bot from '../bot';
 import clear from '../commands/clear';
 import push from '../push';
 
-const clearKeyboard = () => {
-  schedule.scheduleJob('0 5 1 * * *', async () => {
-    const message = await clear(me);
-    if (message) await push(message);
-  });
-};
+// const clearKeyboard = () => {
+//   schedule.scheduleJob('0 5 1 * * *', async () => {
+//     const message = await clear(me);
+//     if (message) await push(message);
+//   });
+// };
 
 const cleanConversation = () => {
   schedule.scheduleJob('0 0 4,10,16,22 * * *', async () => {
@@ -37,4 +37,4 @@ const cleanConversation = () => {
   });
 };
 
-export { clearKeyboard, cleanConversation };
+export { cleanConversation };

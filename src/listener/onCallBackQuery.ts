@@ -2,7 +2,7 @@ import TelegramBot, { CallbackQuery } from 'node-telegram-bot-api';
 import addRecTime from '../lib/addRecTime';
 import bot from '../lib/bot';
 import { btnList } from '../lib/buttons';
-import onClickGood from '../lib/onClickGood';
+// import onClickGood from '../lib/onClickGood';
 import newRec from '../lib/operateRec/newRec';
 import searchByQuery from '../lib/searchByQuery';
 
@@ -106,13 +106,13 @@ export default async (result: CallbackQuery) => {
       }
       break;
 
-    case 'good':
-      alert = await onClickGood(result);
-      break;
-
-    case 'nogood':
-      alert = await onClickGood(result);
-      break;
+    // case 'good':
+    //   alert = await onClickGood(result);
+    //   break;
+    //
+    // case 'nogood':
+    //   alert = await onClickGood(result);
+    //   break;
 
     default:
       break;
@@ -125,28 +125,28 @@ export default async (result: CallbackQuery) => {
     });
   }
 
-  if (alert.alert) {
-    if (alert.keyboard) {
-      try {
-        await bot.editMessageReplyMarkup(
-          <TelegramBot.InlineKeyboardMarkup>alert.keyboard,
-          {
-            chat_id: chatId,
-            message_id: messageId!,
-          }
-        );
-      } catch {
-        console.log('更新 inlineKeyBoard 统计数据错误');
-      }
-    }
-
-    try {
-      await bot.answerCallbackQuery(result.id, {
-        text: alert.alert,
-        show_alert: true,
-      });
-    } catch {
-      console.log('用户退出聊天界面，无法弹窗');
-    }
-  }
+  // if (alert.alert) {
+  //   if (alert.keyboard) {
+  //     try {
+  //       await bot.editMessageReplyMarkup(
+  //         <TelegramBot.InlineKeyboardMarkup>alert.keyboard,
+  //         {
+  //           chat_id: chatId,
+  //           message_id: messageId!,
+  //         }
+  //       );
+  //     } catch {
+  //       console.log('更新 inlineKeyBoard 统计数据错误');
+  //     }
+  //   }
+  //
+  //   try {
+  //     await bot.answerCallbackQuery(result.id, {
+  //       text: alert.alert,
+  //       show_alert: true,
+  //     });
+  //   } catch {
+  //     console.log('用户退出聊天界面，无法弹窗');
+  //   }
+  // }
 };

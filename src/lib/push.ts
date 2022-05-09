@@ -6,7 +6,8 @@ export default async (message: string) => {
   let params = {} as PushMsg;
 
   params.pushkey = pushkey;
-  params.text = '【忍妹通知】 ' + message;
+  params.text = '【忍妹】' + message;
+  // params.desp =  message;
   params.type = 'markdown';
 
   await axios({

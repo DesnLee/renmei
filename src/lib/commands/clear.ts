@@ -42,14 +42,17 @@ export default async (id: number) => {
       );
 
       if (typeof result !== 'boolean') {
-        await push(
-          `${target.originTitle} | ${target.zhTitle}\n内联键盘清除成功！\n`
-        );
+        await bot.sendMessage(me,`内联键盘清除成功！\n`)
+        // await push(
+        //   `${target.originTitle} | ${target.zhTitle}\n内联键盘清除成功！\n`
+        // );
       }
     } catch (error) {
-      await push(
-        `${target.originTitle} | ${target.zhTitle}\n内联键盘清除失败！${error}\n`
-      );
+      await bot.sendMessage(me, `内联键盘清除失败！${ error }\n`)
+
+      // await push(
+      //   `${target.originTitle} | ${target.zhTitle}\n内联键盘清除失败！${error}\n`
+      // );
     }
   }
 };

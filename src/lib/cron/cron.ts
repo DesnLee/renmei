@@ -1,13 +1,13 @@
-import { cleanConversation, clearKeyboard } from './clearSomething';
-import { changeRec, reset } from './resetStatus';
+import { cleanConversation } from './clearSomething';
+import { changeRec } from './resetStatus';
 import { channel, group } from './sendMessage';
 
 export default () => {
   channel();
   group();
-  clearKeyboard();
+  // clearKeyboard();
   cleanConversation();
-  reset();
+  // reset();
   changeRec();
   return '定时任务已开启';
 };

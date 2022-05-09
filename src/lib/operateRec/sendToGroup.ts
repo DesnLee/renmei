@@ -32,14 +32,14 @@ export default async () => {
   /**
    * 构造推送消息
    */
-  const message = await createRecMsg(info, data);
+  const { img,message } = await createRecMsg(info, data);
   try {
     /**
      * 推送消息
      */
     for (const group of groupList) {
-      await bot.sendPhoto(group.tg_id, message.imgUrl, {
-        caption: message.message,
+      await bot.sendPhoto(group.tg_id, img, {
+        caption: message,
         parse_mode: `HTML`,
       });
     }

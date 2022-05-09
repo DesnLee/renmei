@@ -12,8 +12,8 @@ interface Config {
   msg: { start: string; help: string };
   push_key: string;
   tmdb_api_key: string;
-  search_url: string;
-  score_path: string;
+  // search_url: string;
+  // score_path: string;
   parse: {
     html: SendMessageOptions;
     mark: SendMessageOptions;
@@ -36,8 +36,8 @@ const {
   msg: configMsg,
   push_key: pushkey,
   tmdb_api_key: tmdbApiKey,
-  search_url: searchUrl,
-  score_path: scorePath,
+  // search_url: searchUrl,
+  // score_path: scorePath,
 
   parse,
 } = config;
@@ -51,7 +51,7 @@ export {
   configMsg,
   pushkey,
   tmdbApiKey,
-  searchUrl,
-  scorePath,
+  // searchUrl,
+  // scorePath,
   parse,
 };

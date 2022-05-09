@@ -1,3 +1,5 @@
+import axios from 'axios';
+import * as Stream from 'stream';
 import { RecommendDoc, TmdbInfo, UserDoc } from '../../env';
 import { User } from '../mongo/models';
 
@@ -5,7 +7,12 @@ export default async (data: TmdbInfo, doc: RecommendDoc) => {
   const user: UserDoc = await User.findById(doc.from).exec();
   const text = doc.text || '';
   const userName = user.first_name + ' ' + (user.last_name || '');
-  const imgUrl = 'https://www.themoviedb.org/t/p/w500' + data.poster_path;
+  const img = await axios({
+    url: 'https://www.themoviedb.org/t/p/w500' + data.poster_path,
+    method: 'GET',
+    responseType: 'stream'
+  });
+
   const {
     genres,
     status,
@@ -107,5 +114,5 @@ export default async (data: TmdbInfo, doc: RecommendDoc) => {
     message += `From <a href="tg://user?id=${user.tg_id}">${userName}</a>\n\n`;
     message += `${text}`;
   }
-  return { imgUrl: imgUrl, message: message };
+  return { img:img.data, message };
 };
